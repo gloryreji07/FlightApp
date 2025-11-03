@@ -1,7 +1,7 @@
 import { clsx, type ClassValue } from "clsx"
 import { twMerge } from "tailwind-merge"
 import { format, parseISO } from 'date-fns';
-import { utcToZonedTime } from 'date-fns-tz';
+import { toZonedTime } from 'date-fns-tz';
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
@@ -15,7 +15,7 @@ const toDate = (dateString: string) => {
     // A simple way is to format it as UTC.
     // A better way might be to parse it into a specific timezone if the API implies one.
     // Let's assume UTC for now.
-    return utcToZonedTime(date, 'Etc/UTC');
+    return toZonedTime(date, 'Etc/UTC');
 }
 
 
