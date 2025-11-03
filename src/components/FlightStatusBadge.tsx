@@ -53,37 +53,22 @@ export function FlightStatusBadge({ status, className }: FlightStatusBadgeProps)
   const { icon, variant, label } = getStatusStyle();
 
   const variantClasses = {
-    default: "bg-primary/20 text-primary-foreground border-transparent hover:bg-primary/30",
-    success: "bg-success/20 text-success-foreground border-transparent hover:bg-success/30",
-    accent: "bg-accent/20 text-accent-foreground border-transparent hover:bg-accent/30",
-    destructive: "bg-destructive/20 text-destructive-foreground border-transparent hover:bg-destructive/30",
-    secondary: "bg-secondary text-secondary-foreground border-transparent hover:bg-secondary/80",
+    default: "bg-primary/20 text-primary border-primary/20",
+    success: "bg-success/20 text-success border-success/20",
+    accent: "bg-accent/20 text-accent-foreground border-accent/20",
+    destructive: "bg-destructive/20 text-destructive border-destructive/20",
+    secondary: "bg-secondary text-secondary-foreground border-secondary",
     outline: "text-foreground",
   };
   
-  // Customizing text colors for better contrast on light backgrounds
-  const textVariantClasses = {
-      default: "text-primary",
-      success: "text-success",
-      accent: "text-accent-foreground", // accent is dark, so use its foreground
-      destructive: "text-destructive",
-      secondary: "text-secondary-foreground",
-      outline: "text-foreground",
-  }
-  
-  const textColor = textVariantClasses[variant] || 'text-foreground';
-
   return (
-    <Badge className={cn("flex items-center gap-1.5", variantClasses[variant], textColor, className)} >
+    <Badge variant="outline" className={cn("flex items-center gap-1.5", variantClasses[variant], className)} >
       {icon}
       <span>{label}</span>
     </Badge>
   );
 }
 
-// Need to define custom badge variants in tailwind config or here.
-// For now, using direct classes.
-// In badge.tsx, variant can be extended. Here I will use custom classes.
 const badgeVariants = {
     success: "border-transparent bg-success text-success-foreground hover:bg-success/80",
     accent: "border-transparent bg-accent text-accent-foreground hover:bg-accent/80",

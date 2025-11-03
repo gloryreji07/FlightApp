@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export function Header() {
   return (
-    <header className="bg-card/80 backdrop-blur-sm border-b shadow-sm sticky top-0 z-40">
+    <header className="bg-card/95 backdrop-blur-sm border-b sticky top-0 z-40">
       <div className="container mx-auto flex items-center h-16">
         <Link href="/" className="flex items-center gap-3 text-primary transition-opacity hover:opacity-80">
           <Plane className="h-7 w-7 text-primary" />

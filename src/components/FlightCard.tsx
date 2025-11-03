@@ -33,11 +33,11 @@ export function FlightCard({ flight }: FlightCardProps) {
   return (
     <Dialog open={isDetailsOpen} onOpenChange={setIsDetailsOpen}>
       <DialogTrigger asChild>
-        <Card className="hover:shadow-lg hover:border-primary/50 transition-all cursor-pointer h-full flex flex-col">
+        <Card className="hover:shadow-xl hover:border-primary transition-all cursor-pointer h-full flex flex-col group">
           <CardHeader>
             <div className="flex justify-between items-start gap-2">
                 <div>
-                    <CardTitle className="font-headline text-lg">{flight.airline}</CardTitle>
+                    <CardTitle className="font-headline text-lg group-hover:text-primary">{flight.airline}</CardTitle>
                     <p className="text-sm text-muted-foreground">{flight.flightNumber}</p>
                 </div>
                 <FlightStatusBadge status={flight.status} />
@@ -50,7 +50,7 @@ export function FlightCard({ flight }: FlightCardProps) {
                 <p className="text-xs text-muted-foreground truncate">{flight.origin.city}</p>
               </div>
               <div className="w-1/3 text-muted-foreground flex flex-col items-center">
-                 <ArrowRight className="w-6 h-6" />
+                 <ArrowRight className="w-6 h-6 transition-transform group-hover:translate-x-1" />
                  <div className="flex items-center gap-1 text-xs mt-1">
                     <Clock className="w-3 h-3"/>
                     <span>{flight.duration}</span>
@@ -61,7 +61,7 @@ export function FlightCard({ flight }: FlightCardProps) {
                 <p className="text-xs text-muted-foreground truncate">{flight.destination.city}</p>
               </div>
             </div>
-             <div className="flex justify-between items-center text-sm text-muted-foreground bg-secondary p-2 rounded-md">
+             <div className="flex justify-between items-center text-sm text-muted-foreground bg-secondary/70 p-2 rounded-md">
                 <div>
                     <span className="font-semibold text-foreground">Departs:</span> {formatTime(flight.departure.scheduled)}
                 </div>
@@ -76,10 +76,10 @@ export function FlightCard({ flight }: FlightCardProps) {
                 variant="ghost"
                 size="sm"
                 onClick={handleWatchlistToggle}
-                className="w-full"
+                className="w-full text-muted-foreground hover:text-accent-foreground"
                 aria-label={isInWatchlist ? 'Remove from watchlist' : 'Add to watchlist'}
               >
-                <Star className={cn('mr-2 h-4 w-4', isInWatchlist ? 'fill-accent text-accent' : 'text-muted-foreground')} />
+                <Star className={cn('mr-2 h-4 w-4 transition-colors', isInWatchlist ? 'fill-accent text-accent' : 'text-muted-foreground group-hover:text-accent')} />
                 {isInWatchlist ? 'On Watchlist' : 'Add to Watchlist'}
               </Button>
             )}

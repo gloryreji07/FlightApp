@@ -5,7 +5,7 @@ import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Search } from 'lucide-react';
-import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 
 type SearchType = 'flightNumber' | 'origin' | 'destination';
 
@@ -36,9 +36,10 @@ export function FlightSearch({ onSearch }: FlightSearchProps) {
   }
 
   return (
-    <Card className="overflow-hidden">
+    <Card className="overflow-hidden shadow-lg">
         <CardHeader>
-            <CardTitle className="font-headline text-xl md:text-2xl">Explore Flights</CardTitle>
+            <CardTitle className="font-headline text-xl md:text-2xl">Find Your Flight</CardTitle>
+            <CardDescription>Search by flight number, origin, or destination.</CardDescription>
         </CardHeader>
         <CardContent>
             <form onSubmit={handleSearch} className="flex flex-col sm:flex-row items-center gap-2">
@@ -59,7 +60,7 @@ export function FlightSearch({ onSearch }: FlightSearchProps) {
                     onChange={(e) => setSearchTerm(e.target.value)}
                     className="flex-grow"
                 />
-                <Button type="submit" className="w-full sm:w-auto bg-accent hover:bg-accent/90">
+                <Button type="submit" className="w-full sm:w-auto">
                     <Search className="mr-2 h-4 w-4" />
                     Search
                 </Button>
