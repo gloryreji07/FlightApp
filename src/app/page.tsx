@@ -6,13 +6,13 @@ export default async function Home() {
   const flights = await getFlights();
 
   return (
-    <div className="flex flex-col min-h-screen bg-secondary/30">
-      <div className="fixed inset-0 bg-sky -z-10" />
+    <div className="flex flex-col min-h-screen">
+      <div className="fixed inset-0 aurora-background -z-10" />
       <Header />
       <main className="flex-grow container mx-auto p-4 md:p-6 lg:p-8">
           <FlightExplorer initialFlights={flights} />
       </main>
-      <footer className="py-4 text-center text-sm text-white/80">
+      <footer className="py-4 text-center text-sm text-white/50">
           <p>Built for the skies. © {new Date().getFullYear()} FlightTrackr.</p>
       </footer>
     </div>

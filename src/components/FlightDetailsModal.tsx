@@ -28,11 +28,11 @@ const DetailItem = ({ icon: Icon, label, value }: { icon: React.ElementType, lab
 
 export function FlightDetailsModal({ flight }: FlightDetailsModalProps) {
   return (
-    <DialogContent className="sm:max-w-[525px]">
+    <DialogContent className="glass-card sm:max-w-[525px]">
       <DialogHeader>
         <div className="flex justify-between items-start">
             <div>
-                <DialogTitle className="font-headline text-2xl">{flight.airline} {flight.flightNumber}</DialogTitle>
+                <DialogTitle className="font-headline text-2xl text-primary">{flight.airline} {flight.flightNumber}</DialogTitle>
                 <DialogDescription>
                     {flight.origin.city} to {flight.destination.city}
                 </DialogDescription>

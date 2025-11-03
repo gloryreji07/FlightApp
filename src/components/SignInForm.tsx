@@ -122,7 +122,7 @@ export function SignInForm() {
   };
 
   return (
-    <Card className="w-full max-w-md shadow-2xl">
+    <Card className="w-full max-w-md shadow-2xl glass-card">
       <CardHeader className="text-center">
         <div className="mx-auto bg-primary rounded-full p-3 w-fit mb-4">
           <Plane className="h-8 w-8 text-primary-foreground" />

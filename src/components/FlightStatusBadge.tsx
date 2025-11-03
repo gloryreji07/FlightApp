@@ -1,6 +1,6 @@
 import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
-import { Clock, CheckCircle, XCircle, PlaneTakeoff, PlaneLanding, HelpCircle } from "lucide-react";
+import { Clock, CheckCircle, XCircle, PlaneTakeoff, PlaneLanding, HelpCircle, AlertTriangle } from "lucide-react";
 import type { Flight } from "@/lib/types";
 
 interface FlightStatusBadgeProps {
@@ -41,6 +41,12 @@ export function FlightStatusBadge({ status, className }: FlightStatusBadgeProps)
           variant: 'default' as const,
           label: 'Arrived'
         };
+       case 'Boarding':
+         return {
+          icon: <AlertTriangle className="h-3 w-3" />,
+          variant: 'accent' as const,
+          label: 'Boarding'
+        };
       default:
         return {
           icon: <HelpCircle className="h-3 w-3" />,
@@ -53,10 +59,10 @@ export function FlightStatusBadge({ status, className }: FlightStatusBadgeProps)
   const { icon, variant, label } = getStatusStyle();
 
   const variantClasses = {
-    default: "bg-primary/20 text-primary border-primary/20",
-    success: "bg-success/20 text-success border-success/20",
-    accent: "bg-accent/20 text-accent-foreground border-accent/20",
-    destructive: "bg-destructive/20 text-destructive border-destructive/20",
+    default: "bg-primary/20 text-primary-foreground border-primary/20",
+    success: "bg-green-500/20 text-green-400 border-green-500/20",
+    accent: "bg-yellow-500/20 text-yellow-400 border-yellow-500/20",
+    destructive: "bg-red-500/20 text-red-400 border-red-500/20",
     secondary: "bg-secondary text-secondary-foreground border-secondary",
     outline: "text-foreground",
   };
@@ -68,8 +74,3 @@ export function FlightStatusBadge({ status, className }: FlightStatusBadgeProps)
     </Badge>
   );
 }
-
-const badgeVariants = {
-    success: "border-transparent bg-success text-success-foreground hover:bg-success/80",
-    accent: "border-transparent bg-accent text-accent-foreground hover:bg-accent/80",
-};

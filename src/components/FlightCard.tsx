@@ -45,7 +45,7 @@ export function FlightCard({ flight }: FlightCardProps) {
   return (
     <Dialog open={isDetailsOpen} onOpenChange={setIsDetailsOpen}>
       <DialogTrigger asChild>
-        <Card className="hover:shadow-lg hover:border-primary/50 transition-all cursor-pointer h-full flex flex-col group bg-card/90 backdrop-blur-sm">
+        <Card className="glass-card hover:border-primary/80 transition-all cursor-pointer h-full flex flex-col group hover:shadow-primary/20">
           <CardHeader>
             <div className="flex justify-between items-start gap-2">
                 <div>
