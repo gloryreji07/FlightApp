@@ -37,7 +37,9 @@ export function FlightResults({ flights, isLoading }: FlightResultsProps) {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
       {flights.map((flight) => (
-        <FlightCard key={flight.id} flight={flight} />
+        // Use a composite key (id + scheduled time) to avoid duplicate keys when
+        // multiple flight entries share the same `id` value.
+        <FlightCard key={`${flight.id}-${flight.departure.scheduled}`} flight={flight} />
       ))}
     </div>
   );

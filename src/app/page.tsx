@@ -12,7 +12,7 @@ export default async function Home() {
       <main className="flex-grow container mx-auto p-4 md:p-6 lg:p-8">
           <FlightExplorer initialFlights={flights} />
       </main>
-      <footer className="py-4 text-center text-sm text-white/50">
+      <footer className="py-4 text-center text-sm text-muted-foreground">
           <p>Built for the skies. © {new Date().getFullYear()} FlightTrackr.</p>
       </footer>
     </div>

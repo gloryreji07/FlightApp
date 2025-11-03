@@ -17,8 +17,8 @@ interface FlightDetailsModalProps {
 }
 
 const DetailItem = ({ icon: Icon, label, value }: { icon: React.ElementType, label: string, value: React.ReactNode }) => (
-    <div className="flex items-start gap-4">
-        <Icon className="h-5 w-5 text-primary mt-1 flex-shrink-0" />
+  <div className="flex items-start gap-4">
+    <Icon className="h-5 w-5 text-accent mt-1 flex-shrink-0" />
         <div className="flex flex-col">
             <span className="text-sm text-muted-foreground">{label}</span>
             <span className="font-semibold text-foreground">{value || 'N/A'}</span>
@@ -32,7 +32,7 @@ export function FlightDetailsModal({ flight }: FlightDetailsModalProps) {
       <DialogHeader>
         <div className="flex justify-between items-start">
             <div>
-                <DialogTitle className="font-headline text-2xl text-primary">{flight.airline} {flight.flightNumber}</DialogTitle>
+                <DialogTitle className="font-headline text-2xl text-foreground">{flight.airline} {flight.flightNumber}</DialogTitle>
                 <DialogDescription>
                     {flight.origin.city} to {flight.destination.city}
                 </DialogDescription>

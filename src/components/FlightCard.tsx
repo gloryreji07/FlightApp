@@ -45,11 +45,11 @@ export function FlightCard({ flight }: FlightCardProps) {
   return (
     <Dialog open={isDetailsOpen} onOpenChange={setIsDetailsOpen}>
       <DialogTrigger asChild>
-        <Card className="glass-card hover:border-primary/80 transition-all cursor-pointer h-full flex flex-col group hover:shadow-primary/20">
+  <Card className="glass-card hover:border-accent/80 transition-all cursor-pointer h-full flex flex-col group hover:shadow-accent/20">
           <CardHeader>
             <div className="flex justify-between items-start gap-2">
                 <div>
-                    <CardTitle className="font-headline text-lg group-hover:text-primary">{flight.airline}</CardTitle>
+                    <CardTitle className="font-headline text-lg group-hover:text-accent">{flight.airline}</CardTitle>
                     <p className="text-sm text-muted-foreground">{flight.flightNumber}</p>
                 </div>
                 <FlightStatusBadge status={flight.status} />

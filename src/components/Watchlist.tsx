@@ -41,9 +41,10 @@ export function Watchlist({ allFlights }: WatchlistProps) {
     <div>
         <h2 className="text-2xl font-bold font-headline mb-4">Your Tracked Flights</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
-        {watchedFlights.map((flight) => (
-            <FlightCard key={flight.id} flight={flight} />
-        ))}
+    {watchedFlights.map((flight) => (
+      // Composite key to avoid duplicate key warnings when flights share the same `id`
+      <FlightCard key={`${flight.id}-${flight.departure.scheduled}`} flight={flight} />
+    ))}
         </div>
     </div>
   );
