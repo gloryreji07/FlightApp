@@ -7,7 +7,7 @@ import { Button } from '@/components/ui/button';
 import { Dialog, DialogTrigger } from '@/components/ui/dialog';
 import { FlightDetailsModal } from '@/components/FlightDetailsModal';
 import { FlightStatusBadge } from '@/components/FlightStatusBadge';
-import { Star, Plane, ArrowRight, Clock } from 'lucide-react';
+import { Star, ArrowRight, Clock } from 'lucide-react';
 import { formatTime, cn } from '@/lib/utils';
 import { useState } from 'react';
 
@@ -33,7 +33,7 @@ export function FlightCard({ flight }: FlightCardProps) {
   return (
     <Dialog open={isDetailsOpen} onOpenChange={setIsDetailsOpen}>
       <DialogTrigger asChild>
-        <Card className="hover:shadow-xl hover:border-primary transition-all cursor-pointer h-full flex flex-col group">
+        <Card className="hover:shadow-lg hover:border-primary/50 transition-all cursor-pointer h-full flex flex-col group bg-card/90 backdrop-blur-sm">
           <CardHeader>
             <div className="flex justify-between items-start gap-2">
                 <div>
@@ -61,7 +61,7 @@ export function FlightCard({ flight }: FlightCardProps) {
                 <p className="text-xs text-muted-foreground truncate">{flight.destination.city}</p>
               </div>
             </div>
-             <div className="flex justify-between items-center text-sm text-muted-foreground bg-secondary/70 p-2 rounded-md">
+             <div className="flex justify-between items-center text-sm text-muted-foreground bg-secondary/80 p-2 rounded-md">
                 <div>
                     <span className="font-semibold text-foreground">Departs:</span> {formatTime(flight.departure.scheduled)}
                 </div>

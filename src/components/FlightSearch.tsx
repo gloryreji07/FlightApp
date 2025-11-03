@@ -36,7 +36,7 @@ export function FlightSearch({ onSearch }: FlightSearchProps) {
   }
 
   return (
-    <Card className="overflow-hidden shadow-lg">
+    <Card className="overflow-hidden shadow-lg bg-card/90 backdrop-blur-sm">
         <CardHeader>
             <CardTitle className="font-headline text-xl md:text-2xl">Find Your Flight</CardTitle>
             <CardDescription>Search by flight number, origin, or destination.</CardDescription>
