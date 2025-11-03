@@ -4,7 +4,7 @@
 
 @layer base {
   :root {
-    --background: 240 10% 3.9%;
+    --background: 222 84% 5%;
     --foreground: 0 0% 98%;
 
     --card: 240 4% 10%;
@@ -13,7 +13,7 @@
     --popover: 240 10% 3.9%;
     --popover-foreground: 0 0% 98%;
 
-    --primary: 316 68% 56%;
+    --primary: 217 91% 60%;
     --primary-foreground: 0 0% 100%;
 
     --secondary: 240 4% 15%;
@@ -22,7 +22,7 @@
     --muted: 240 4% 25%;
     --muted-foreground: 240 5% 64.9%;
     
-    --accent: 188 82% 57%;
+    --accent: 217 91% 75%;
     --accent-foreground: 240 10% 3.9%;
 
     --destructive: 0 63% 31%;
@@ -33,19 +33,19 @@
 
     --border: 240 4% 15%;
     --input: 240 4% 15%;
-    --ring: 316 68% 56%;
+    --ring: 217 91% 60%;
 
     --radius: 0.5rem;
 
     --chart-1: 188 82% 57%;
-    --chart-2: 316 68% 56%;
+    --chart-2: 217 91% 60%;
     --chart-3: 270 85% 60%;
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
   }
 
   .dark {
-    --background: 240 10% 3.9%;
+    --background: 222 84% 5%;
     --foreground: 0 0% 98%;
 
     --card: 240 4% 10%;
@@ -54,7 +54,7 @@
     --popover: 240 10% 3.9%;
     --popover-foreground: 0 0% 98%;
 
-    --primary: 316 68% 56%;
+    --primary: 217 91% 60%;
     --primary-foreground: 0 0% 100%;
 
     --secondary: 240 4% 15%;
@@ -63,7 +63,7 @@
     --muted: 240 4% 25%;
     --muted-foreground: 240 5% 64.9%;
     
-    --accent: 188 82% 57%;
+    --accent: 217 91% 75%;
     --accent-foreground: 240 10% 3.9%;
 
     --destructive: 0 63% 31%;
@@ -74,10 +74,10 @@
 
     --border: 240 4% 15%;
     --input: 240 4% 15%;
-    --ring: 316 68% 56%;
+    --ring: 217 91% 60%;
     
     --chart-1: 188 82% 57%;
-    --chart-2: 316 68% 56%;
+    --chart-2: 217 91% 60%;
     --chart-3: 270 85% 60%;
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
@@ -97,10 +97,10 @@
   .aurora-background {
     background: linear-gradient(
       -45deg,
-      hsl(220, 40%, 5%),
-      hsl(190, 50%, 10%),
-      hsl(210, 45%, 12%),
-      hsl(220, 40%, 5%)
+      hsl(222, 44%, 8%),
+      hsl(210, 50%, 12%),
+      hsl(222, 40%, 15%),
+      hsl(222, 84%, 5%)
     );
     background-size: 400% 400%;
     animation: gradient 15s ease infinite;
