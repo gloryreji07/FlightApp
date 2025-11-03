@@ -25,3 +25,8 @@ export interface FlightTimeInfo {
   terminal: string;
   gate: string;
 }
+
+export interface Watchlist {
+    id: string; // Should be user UID
+    flights: string[]; // Array of flight IDs
+}

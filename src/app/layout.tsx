@@ -4,6 +4,7 @@ import { WatchlistProvider } from '@/context/WatchlistContext';
 import { Toaster } from "@/components/ui/toaster";
 import { Poppins, PT_Sans } from 'next/font/google';
 import { cn } from '@/lib/utils';
+import { FirebaseClientProvider } from '@/firebase';
 
 export const metadata: Metadata = {
   title: 'FlightTrackr',
@@ -30,10 +31,12 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={cn("font-body antialiased", fontPoppins.variable, fontPtSans.variable)}>
-        <WatchlistProvider>
-          {children}
-          <Toaster />
-        </WatchlistProvider>
+        <FirebaseClientProvider>
+          <WatchlistProvider>
+            {children}
+            <Toaster />
+          </WatchlistProvider>
+        </FirebaseClientProvider>
       </body>
     </html>
   );

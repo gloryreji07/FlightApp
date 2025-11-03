@@ -7,27 +7,39 @@ import { Button } from '@/components/ui/button';
 import { Dialog, DialogTrigger } from '@/components/ui/dialog';
 import { FlightDetailsModal } from '@/components/FlightDetailsModal';
 import { FlightStatusBadge } from '@/components/FlightStatusBadge';
-import { Star, ArrowRight, Clock } from 'lucide-react';
+import { Star, ArrowRight, Clock, Loader2 } from 'lucide-react';
 import { formatTime, cn } from '@/lib/utils';
 import { useState } from 'react';
+import { useUser } from '@/firebase';
 
 interface FlightCardProps {
   flight: Flight;
 }
 
 export function FlightCard({ flight }: FlightCardProps) {
+  const { user } = useUser();
   const { watchlistIds, addToWatchlist, removeFromWatchlist, isLoaded } = useWatchlist();
   const [isDetailsOpen, setIsDetailsOpen] = useState(false);
+  const [isToggling, setIsToggling] = useState(false);
 
   const isInWatchlist = watchlistIds.includes(flight.id);
 
-  const handleWatchlistToggle = (e: React.MouseEvent) => {
+  const handleWatchlistToggle = async (e: React.MouseEvent) => {
     e.stopPropagation(); // Prevent modal from opening
-    if (isInWatchlist) {
-      removeFromWatchlist(flight.id);
-    } else {
-      addToWatchlist(flight.id);
+    if (!user) {
+      // Handle case where user is not logged in
+      console.log('User must be logged in to modify watchlist');
+      // Maybe show a toast message here
+      return;
     }
+    
+    setIsToggling(true);
+    if (isInWatchlist) {
+      await removeFromWatchlist(flight.id);
+    } else {
+      await addToWatchlist(flight.id);
+    }
+    setIsToggling(false);
   };
 
   return (
@@ -71,16 +83,27 @@ export function FlightCard({ flight }: FlightCardProps) {
             </div>
           </CardContent>
           <CardFooter>
-            {isLoaded && (
+            {isLoaded && user && (
               <Button
                 variant="ghost"
                 size="sm"
                 onClick={handleWatchlistToggle}
                 className="w-full text-muted-foreground hover:text-accent-foreground"
                 aria-label={isInWatchlist ? 'Remove from watchlist' : 'Add to watchlist'}
+                disabled={isToggling}
               >
-                <Star className={cn('mr-2 h-4 w-4 transition-colors', isInWatchlist ? 'fill-accent text-accent' : 'text-muted-foreground group-hover:text-accent')} />
+                {isToggling ? (
+                    <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                ) : (
+                    <Star className={cn('mr-2 h-4 w-4 transition-colors', isInWatchlist ? 'fill-accent text-accent' : 'text-muted-foreground group-hover:text-accent')} />
+                )}
                 {isInWatchlist ? 'On Watchlist' : 'Add to Watchlist'}
+              </Button>
+            )}
+            {!user && isLoaded && (
+              <Button variant="ghost" size="sm" className="w-full text-muted-foreground" disabled>
+                 <Star className="mr-2 h-4 w-4" />
+                 Log in to add to watchlist
               </Button>
             )}
           </CardFooter>
