@@ -10,7 +10,7 @@ import {
 import { FlightStatusBadge } from '@/components/FlightStatusBadge';
 import { formatDateTime } from '@/lib/utils';
 import { Separator } from '@/components/ui/separator';
-import { Plane, Calendar, Clock, Building2, Gate, PlaneTakeoff, PlaneLanding } from 'lucide-react';
+import { Plane, Calendar, Clock, Building2, PlaneTakeoff, PlaneLanding, DoorOpen } from 'lucide-react';
 
 interface FlightDetailsModalProps {
   flight: Flight;
@@ -49,7 +49,7 @@ export function FlightDetailsModal({ flight }: FlightDetailsModalProps) {
                 {flight.departure.actual && <DetailItem icon={Clock} label="Actual" value={formatDateTime(flight.departure.actual)} />}
                 <div className="flex gap-4">
                     <DetailItem icon={Building2} label="Terminal" value={flight.departure.terminal} />
-                    <DetailItem icon={Gate} label="Gate" value={flight.departure.gate} />
+                    <DetailItem icon={DoorOpen} label="Gate" value={flight.departure.gate} />
                 </div>
             </div>
             <div className="space-y-4 p-4 rounded-lg bg-secondary/50">
@@ -59,7 +59,7 @@ export function FlightDetailsModal({ flight }: FlightDetailsModalProps) {
                 {flight.arrival.estimated && <DetailItem icon={Clock} label="Estimated" value={formatDateTime(flight.arrival.estimated)} />}
                  <div className="flex gap-4">
                     <DetailItem icon={Building2} label="Terminal" value={flight.arrival.terminal} />
-                    <DetailItem icon={Gate} label="Gate" value={flight.arrival.gate} />
+                    <DetailItem icon={DoorOpen} label="Gate" value={flight.arrival.gate} />
                 </div>
             </div>
         </div>

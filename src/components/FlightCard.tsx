@@ -8,7 +8,7 @@ import { Dialog, DialogTrigger } from '@/components/ui/dialog';
 import { FlightDetailsModal } from '@/components/FlightDetailsModal';
 import { FlightStatusBadge } from '@/components/FlightStatusBadge';
 import { Star, Plane, ArrowRight, Clock } from 'lucide-react';
-import { formatTime } from '@/lib/utils';
+import { formatTime, cn } from '@/lib/utils';
 import { useState } from 'react';
 
 interface FlightCardProps {
