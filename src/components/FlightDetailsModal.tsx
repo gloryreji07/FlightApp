@@ -10,7 +10,10 @@ import {
 import { FlightStatusBadge } from '@/components/FlightStatusBadge';
 import { formatDateTime } from '@/lib/utils';
 import { Separator } from '@/components/ui/separator';
-import { Plane, Calendar, Clock, Building2, PlaneTakeoff, PlaneLanding, DoorOpen } from 'lucide-react';
+import { Plane, Calendar, Clock, Building2, PlaneTakeoff, PlaneLanding, DoorOpen, Bot } from 'lucide-react';
+import { Button } from './ui/button';
+import { useState } from 'react';
+import { FlightAssistant } from './FlightAssistant';
 
 interface FlightDetailsModalProps {
   flight: Flight;
@@ -27,6 +30,8 @@ const DetailItem = ({ icon: Icon, label, value }: { icon: React.ElementType, lab
 );
 
 export function FlightDetailsModal({ flight }: FlightDetailsModalProps) {
+  const [isAssistantOpen, setIsAssistantOpen] = useState(false);
+
   return (
     <DialogContent className="sm:max-w-[525px]">
       <DialogHeader>
@@ -70,6 +75,9 @@ export function FlightDetailsModal({ flight }: FlightDetailsModalProps) {
             {flight.delay > 0 && <DetailItem icon={Clock} label="Delay" value={`${flight.delay} minutes`} />}
         </div>
       </div>
+       <div className="flex justify-center">
+            <FlightAssistant flight={flight} />
+        </div>
     </DialogContent>
   );
 }
